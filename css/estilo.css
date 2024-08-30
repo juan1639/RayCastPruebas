@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #871;
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+#total {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4em 0.4em;
+  background-color: none;
+}
+
+canvas {
+  border-width: 2px;
+  border-style: solid;
+  border-color:  #111;
+  display: none;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: saddlebrown;
+}
+
+#pre-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: inherit;
+}
+
+#contenedor-pre-menu {
+  width: 80%;
+  height: fit-content;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 8px;
+  padding: 1em 1em 3em 1em;
+  background-color: #e3d9a7;
+  text-shadow: 1px 1px 2px rgba(1, 1, 1, 0.9);
+}
+
+#contenedor-pre-menu:hover {
+  transform: scale(1.02);
+  box-shadow: 5px 5px 5px rgba(9, 9, 9, 0.8);
+}
+
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: inherit;
+  border-style: none none solid none;
+  border-color: rgba(127, 115, 29, 0.3);
+  border-width: 1px;
+  padding-top: 2em;
+  padding-bottom: 0.4em;
+}
+
+.cuerpo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: inherit;
+  border-color: rgba(127, 115, 29, 0.3);
+  border-width: 1px;
+  font-size: 24px;
+  font-weight: 600;
+  color: peru;
+  padding: 0.8em;
+  /* border-style: solid; */
+  /* gap: 1em; */
+}
+
+.opcion-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.8em;
+}
+
+.opcion-menu:hover {
+  opacity: 0.8;
+}
+
+.boton-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+#durante-juego {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  color: #871;
+  opacity: 0.7;
+  border-style: none none solid none;
+  border-width: 1px;
+  border-color: rgba(127, 115, 29, 0.3);
+  margin-top: 2em;
+  padding-bottom: 0.4em;
+}
+
+button {
+  width: fit-content;
+  height: fit-content;
+  font-size: 24px;
+  font-weight: bold;
+  color: #373601;
+  background-color:#a95;
+  padding: 0.6em 1.8em;
+  border-radius: 8px;
+  border-style: none;
+}
+
+button:hover {
+  opacity: 0.8;
+  color: #676110;
+}
+
+button:active {
+  transform: translateY(9px);
+}
+
+/*---------------------------------------------------------
+BOTONES < CONTROLES & NUEVA PARTIDA >
+---------------------------------------------------------*/
+#botonera {
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: -200px;
+  /* *** toggle display:flex *** */
+  display: none;
+}
+
+.botonesControl, .botonesResto {
+  width: 47%;
+	display: flex;
+  flex-direction: column;
+	border-radius: 5px;
+	border: none;
+	background-color: none;
+  opacity: 0.2;
+}
+
+.botonesResto {
+  justify-content: flex-end;
+}
+
+.boton-control {
+  display: flex;
+  justify-content: center;
+}
+
+.boton {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 6px;
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px 25px 7px 25px;
+	outline: none;
+}
+
+.boton:active {
+	transform: translate(-2px, -4px);
+}
+
+.controles {
+	height: 60px;
+	color: black;
+	border-radius: 6px;
+	background: linear-gradient(#CCC, #777);
+	font-size: 30px;
+	font-weight: bold;
+	box-shadow: inset -3px -2px 2px rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+}
+
+#boton__up {
+	width: 100%;
+	border-radius: 90% 90% 0 0;
+}
+
+#boton__do {
+	width: 100%;
+	border-radius: 0 0 90% 90%;
+}
+
+#boton__ri, #boton__le {
+  width: 49%;
+}
+
+#boton__fire {
+  width: 99%;
+  height: 80px;
+}
+
+#boton__mapa, #boton__texturas {
+  width: 90%;
+  height: 40px;
+}
+
+/*=========================================================
+M E D I A
+---------------------------------------------------------*/
+@media (max-width: 576px) {
+  canvas {
+    width: 200px;
+    height: 200px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  #pre-menu {
+    padding: 0.6em;
+  }
+  
+  #contenedor-pre-menu {
+    width: 100%;
+    height: fit-content;
+    padding: 0.6em 0.6em 2em 0.6em;
+    text-shadow: 1px 1px 1px rgba(1, 1, 1, 0.9);
+  }
+
+  .encabezado {
+    padding-top: 1.2em;
+    padding-bottom: 0.2em;
+  }
+  
+  .cuerpo {
+    font-size: 12px;
+    padding: 0.4em;
+    /* border-style: solid; */
+    /* gap: 1em; */
+  }
+  
+  .opcion-menu {
+    margin-top: 0.6em;
+  }
+
+  .boton-submit {
+    margin-top: 1.2em;
+  }
+  
+  #durante-juego {
+    margin-top: 0.6em;
+    padding-bottom: 0.2em;
+  }
+  
+  button {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0.4em 1em;
+  }
+}
